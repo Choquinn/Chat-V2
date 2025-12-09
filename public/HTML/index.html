@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat - Automaconn Chat</title>
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+    <body>
+        <!-- Loading Screen -->
+        <div id="loading-overlay">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <h2>Carregando conversas...</h2>
+                <p id="loading-progress">Aguarde enquanto preparamos tudo para você</p>
+            </div>
+        </div>   
+        <!-- Delete menu -->
+        <div id="delete-menu">
+            <div id="delete-block">
+                <label id="delete-label">Usuários</label>
+                <select id="delete-sel" title="delete" name="delete">
+                    <option value="">Escolha um usuário para deletar</option>
+                    <div id="delete-options"></div>
+                </sefffffflect>
+                <button class="del-button" onclick="deleteUser()">Deletar</button>
+                <button class="del-button white" onclick="cancelDelete()">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+        <!-- Menu de Fechamento -->
+        <div id="close-menu">
+            <div id="close-block">
+                <h3 id="close-title">Opções de Fechamento</h3>
+                <button class="close-option success" onclick="closeWithSuccess()">
+                    <span class="material-icons">check_circle</span>
+                    Terminado com Sucesso
+                </button>
+                <button class="close-option timeout" onclick="closeWithTimeout()">
+                    <span class="material-icons">schedule</span>
+                    Tempo Limite Excedido
+                </button>
+                <button class="close-option no-message" onclick="closeWithoutMessage()">
+                    <span class="material-icons">close</span>
+                    Fechar sem Mensagem
+                </button>
+                <button class="close-option cancel" onclick="cancelCloseMenu()">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+            <!-- Bloco de Chat -->
+            <div id="chat-block">
+                <div id="more-chat">
+                    <div id="more-buttons"></div>
+                    </div>
+                    <div id="status-buttons"></div>
+                    <div id="file">
+                        <span id="close-attach-sym" class="material-icons">close</span>
+                        <div id="file-info"></div>
+                    </div>
+                    <div id="auto-message-menu">
+                        <span class="auto-message" data-message="Aviso de demora">Aviso de demora</span>
+                        <span class="auto-message" data-message="Olá! Como posso ajudá-lo hoje?">Saudação</span>
+                        <span class="auto-message" data-message="Aguarde um momento, por favor.">Aguarde</span>
+                        <span class="auto-message" data-message="Já estou verificando isso para você.">Verificando</span>
+                        <span class="auto-message" data-message="Obrigado por aguardar! Já tenho a resposta.">Pronto</span>
+                        <span class="auto-message" data-message="Foi um prazer atendê-lo! Precisando, estamos à disposição.">Encerramento</span>
+                    </div>
+                    <div id="stickers-menu">
+                        <div id="stickers-header">
+                            <h3>Enviar Sticker</h3>
+                            <span id="close-stickers-sym" class="material-icons" onclick="closeStickerMenu()">close</span>
+                    </div>
+                    <div id="stickers-upload">
+                        <input type="file" id="sticker-input" accept=".webp,.png,.jpg,.jpeg,image/webp,image/png,image/jpeg" class="hidden-input" title="Upload sticker"/>
+                        <button id="sticker-upload-btn" class="sticker-btn upload" onclick="document.getElementById('sticker-input').click()" >📤 Fazer Upload</button>
+                    </div>
+                    <div id="stickers-list"></div>
+                </div>
+                <div id="emojis">
+                    <div id="emoji-sticker-header">
+                        <div class="tab-option active" id="emoji-tab" onclick="switchToEmojis()">
+                            <span class="material-icons">mood</span>
+                            <span>Emojis</span>
+                        </div>
+                        <div class="tab-option" id="sticker-tab" onclick="switchToStickers()">
+                            <span class="material-icons">note</span>
+                            <span>Figurinhas</span>
+                        </div>
+                    </div>
+                    <div id="emoji-content"></div>
+                    <div id="sticker-content"></div>
+                </div>
+                <img id="background-logo" src="images/logo.png" alt="logo" />
+                <div id="chat-history"></div>
+            </div>
+        </div>
+    </body>
+    <script type="module" src="../JS/index.js"></script>
+</html>
